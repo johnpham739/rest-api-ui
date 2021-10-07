@@ -7,8 +7,10 @@ export const environment = {
 };
 
 // This hits the application endpoints of my deployed app
+const hostname = window.location.hostname;
+export const hostURL = `http://${hostname}`;
+
 export const awsUrl = `http://api-env.eba-udukpxjr.us-east-2.elasticbeanstalk.com/api/`
-export const localUrl = `http://localhost:5000/api`
 
 // What if I wanted to grab the current host of my server
 export const currentOrigin = window.location.origin // localhost or aws server

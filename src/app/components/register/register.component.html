@@ -4,6 +4,13 @@
     </div>
 
     <div class="card-body">
+
+        <!-- create a form!-->
+
+        <!-- We'll take all of values captured ot the form and bindi t to a User object 
+        in our register.component.ts file....then we can call a method that calls an HTTP service
+    and send a POST request to our backend API.-->
+
         <form>
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -33,17 +40,19 @@
             </div>
             <div class="form-group">
                 <label for="inputAddress2">Address 2</label>
-                <input [(ngModel)]="address.secondary" type="text" name="secondary" class="form-control" id="inputAddress2"
+                <input  [(ngModel)]="address.secondary" type="text" name="secondary" class="form-control" id="inputAddress2"
                     placeholder="Apartment, studio, or floor">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">City</label>
-                    <input [(ngModel)]="address.city" type="text" name="city" class="form-control" id="inputCity">
+                    <input  [(ngModel)]="address.city" type="text" name="city" class="form-control" id="inputCity">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputState">State</label>
-                    <select [(ngModel)]="address.state" id="inputState" name="state" class="form-control">
+                    <select  [(ngModel)]="address.state" name="state" id="inputState" class="form-control">
+                        <!-- Google: drop down list <option> state bootstrap
+                    https://gist.github.com/RichLogan/9903043 -->
                         <option selected>Choose...</option>
                         <option value="">N/A</option>
                         <option value="AK">Alaska</option>
@@ -102,24 +111,19 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputZip">Zip</label>
+                    <!-- We currently don't take in a Zip Code in our Address Pojo in Spring-->
                     <input type="text" class="form-control" id="inputZip">
                 </div>
             </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Check me out
-                    </label>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary" (click)="registerUser()">Register</button>
-            <!-- First check if we have a client message that's either positive or negative. 
-            Then we populate the view with the alert -->
+            <button type="submit" class="btn btn-secondary" (click)="registerUser()">Register</button>
+
+            <!--  SRUCTURAL DIRECTIVE first check DO we have a client message that's either positive or negative?
+                  THEN we populate the view with the alert  -->
             <div *ngIf="clientMessage.message.length > 0" class="alert alert-success" role="alert">
-                {{ clientMessage.message }}
-              </div>
-              
+                {{ clientMessage.message }} 
+            </div> <!--*ngIf checks for a condition before displaying the element-->
         </form>
+
     </div>
+
 </div>
